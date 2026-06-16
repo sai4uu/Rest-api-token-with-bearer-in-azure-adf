@@ -1,0 +1,24 @@
+{
+	"name": "ds_trg",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureDataLakeStorage1",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Json",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": {
+					"value": "@concat('customer_',formatDateTime(utcNow(),'yyyyMMddHHmmss'),'.json')",
+					"type": "Expression"
+				},
+				"folderPath": "customer",
+				"fileSystem": "rawdata"
+			}
+		},
+		"schema": {}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}
